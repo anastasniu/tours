@@ -1,7 +1,7 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.utils.translation import gettext_lazy as _
-from django.contrib.auth.models import User
+from comments.models import Review
 
 
 
@@ -48,6 +48,7 @@ class Tour(models.Model):
     desc = models.TextField(null=True, blank=True, verbose_name="Описание тура")
     photo = models.ImageField("Постер", upload_to='media/', null=True)
     featured = models.BooleanField(default=True)
+    reviews = models.ForeignKey(Review, on_delete=models.CASCADE)
 
     def __str__(self) -> str:
         return self.title
