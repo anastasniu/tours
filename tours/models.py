@@ -4,11 +4,12 @@ from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import User
 
 
-
 class City(models.Model):
     name = models.CharField(max_length=100)
+
     def __str__(self):
         return self.name
+
 
 class Address(models.Model):
     name = models.CharField(max_length=100)
@@ -20,9 +21,12 @@ class Address(models.Model):
 
 class Tour(models.Model):
     title = models.CharField(max_length=100, verbose_name="Название тура")
-    city = models.ForeignKey(City, null=True, blank=True, on_delete=models.CASCADE, verbose_name="Название области")
-    address = models.ForeignKey(Address, null=True, blank=True, on_delete=models.CASCADE, verbose_name="Город, адрес")
-    distance = models.IntegerField(null=True, blank=True, verbose_name="Рассторяние от Бишкека")
+    city = models.ForeignKey(City, null=True, blank=True,
+                             on_delete=models.CASCADE, verbose_name="Название области")
+    address = models.ForeignKey(
+        Address, null=True, blank=True, on_delete=models.CASCADE, verbose_name="Город, адрес")
+    distance = models.IntegerField(
+        null=True, blank=True, verbose_name="Рассторяние от Бишкека")
     price = models.PositiveIntegerField(
         verbose_name=_('Цена тура'),
         validators=[
@@ -30,14 +34,18 @@ class Tour(models.Model):
             MaxValueValidator(10000, _("Цена не может быть больше 10000"))
         ]
     )
-    maxGroupSize = models.PositiveIntegerField( null=True, blank=True,
-        verbose_name=_('Вместимость группы'),
-        validators=[
-            MinValueValidator(0, _("Вместимость не может быть меньше 0")),
-            MaxValueValidator(15, _("Вместимость не может быть больше 15"))
-        ]
-    )
-    desc = models.TextField(null=True, blank=True, verbose_name="Описание тура")
+    maxGroupSize = models.PositiveIntegerField(null=True, blank=True,
+                                               verbose_name=_(
+                                                   'Вместимость группы'),
+                                               validators=[
+                                                   MinValueValidator(
+                                                       0, _("Вместимость не может быть меньше 0")),
+                                                   MaxValueValidator(
+                                                       15, _("Вместимость не может быть больше 15"))
+                                               ]
+                                               )
+    desc = models.TextField(null=True, blank=True,
+                            verbose_name="Описание тура")
     photo = models.ImageField("Постер", upload_to='media/', null=True)
     featured = models.BooleanField(default=True)
 

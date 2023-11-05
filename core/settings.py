@@ -34,7 +34,8 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     # Apps
     'accounts',
-    'tours'
+    'tours',
+    'comments'
 ]
 
 MIDDLEWARE = [
