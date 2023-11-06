@@ -4,6 +4,7 @@ from core.swagger import schema_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
     path('auth/', include('accounts.urls')),
    
     path('tours/', include('tours.urls')),

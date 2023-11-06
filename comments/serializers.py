@@ -4,6 +4,12 @@ from rest_framework import serializers
 
 
 class ReviewsSerializer(serializers.ModelSerializer):
+    
     class Meta:
         model = Review
-        fields = '__all__'
+        fields =['id', 'tours', 'name', 'body']
+
+        
+
+
+    

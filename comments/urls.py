@@ -4,7 +4,7 @@ from rest_framework.routers import DefaultRouter
 router = DefaultRouter()
 
 
-router.register('/',views.ReviewList,basename='')
+router.register('',views.ReviewList,basename='')
 
 urlpatterns = []
 
