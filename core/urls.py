@@ -12,7 +12,7 @@ urlpatterns = [
     path('comments/', include('comments.urls')),
 =======
     path('tours/', include('tours.urls')),
-    path('comments/', include('tours.urls')),
+    path('comments/', include('comments.urls')),
 
 >>>>>>> c21bb4f
 

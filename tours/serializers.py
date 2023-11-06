@@ -13,14 +13,14 @@ from comments.serializers import ReviewsSerializer
 
 
 
-class ToursSerializer(serializers.ModelSerializer):
+class ToursListSerializer(serializers.ModelSerializer):
     city = serializers.StringRelatedField()
     reviews = ReviewsSerializer(many=True, read_only=True)
 
     class Meta:
         
         model = Tour
-        fields = ['title', 'city', 'address', 'distance', 'price', 'maxGroupSize','desc', 'reviews', 'photo', 'featured' ]
+        fields = ['id','title', 'city', 'address', 'distance', 'price', 'maxGroupSize','desc', 'reviews', 'photo', 'featured' ]
         
     def to_representation(self, instance):
         data = super().to_representation(instance)
@@ -32,10 +32,11 @@ class ToursSerializer(serializers.ModelSerializer):
         return data
 
 
-class ToursCreateSerializer(serializers.ModelSerializer):
+class ToursSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Tour
+<<<<<<< HEAD
         fields = ('title', 'city', 'address', 'distance', 'price', 'maxGroupSize', 'desc', 'photo', 'featured')
 
 
@@ -45,3 +46,6 @@ class ToursCreateSerializer(serializers.ModelSerializer):
         return tour
     
 >>>>>>> c21bb4f
+=======
+        fields =['id','title', 'city', 'address', 'distance', 'price', 'maxGroupSize','desc', 'photo']
+>>>>>>> 31d1881

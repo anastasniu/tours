@@ -4,8 +4,14 @@ from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.views import APIView
 from rest_framework.permissions import AllowAny
-from .serializers import SignUpSerializer
+from .serializers import SignUpSerializer, UsersListSerializer
+from .models import User
 
+
+
+class UserListView(generics.ListAPIView):
+    queryset = User.objects.all()
+    serializer_class = UsersListSerializer
 
 
 

@@ -3,7 +3,12 @@ from rest_framework.validators import ValidationError
 from .models import User
 from django.contrib.auth import authenticate
 
+class UsersListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = '__all__'
 
+        
 
 class SignUpSerializer(serializers.ModelSerializer):
     email = serializers.CharField(max_length = 80)
