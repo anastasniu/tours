@@ -1,10 +1,13 @@
 from django.urls import path
 from . import views
+from rest_framework.routers import DefaultRouter
+
+router = DefaultRouter()
+
+router.register('',views.ToursList,basename='')
 
 urlpatterns = [
     path('list/', views.TourAPIView.as_view()),
-    path('tour/<int:pk>', views.TourAPIView.as_view()),
-    path('create/', views.TourAPICreate.as_view()),
-    path('update/<int:pk>/', views.TourAPIUpdateDestroy.as_view()),
-
 ]
+
+urlpatterns +=router.urls

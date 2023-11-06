@@ -1,26 +1,18 @@
 from .models import Tour
-from .serializers import ToursSerializer, ToursCreateSerializer
+from .serializers import ToursListSerializer, ToursSerializer
 from rest_framework import generics
-from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated 
-from .permissions import IsOwnerOrReadOnly
-
+from rest_framework import viewsets
+from .serializers import ToursSerializer
+from rest_framework.permissions import IsAdminUser
 
 
 class TourAPIView(generics.ListAPIView):
     queryset = Tour.objects.all()
-    serializer_class = ToursSerializer
+    serializer_class = ToursListSerializer
 
 
-class TourAPICreate(generics.ListCreateAPIView):
-    queryset = Tour.objects.all()
-    serializer_class = ToursCreateSerializer
-    permission_classes = (IsAuthenticatedOrReadOnly,)
+class ToursList(viewsets.ModelViewSet):
+    queryset=Tour.objects.all()
+    serializer_class=ToursSerializer
+    permission_classes = [IsAdminUser]
 
-    # def perform_create(self, serializer):
-    #     serializer.save(user=self.request.user)
-
-
-class TourAPIUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Tour.objects.all()
-    serializer_class = ToursSerializer
-    permission_classes = (IsAuthenticated, IsOwnerOrReadOnly)

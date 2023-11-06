@@ -7,7 +7,7 @@ urlpatterns = [
 
     path('auth/', include('accounts.urls')),
     path('tours/', include('tours.urls')),
-    path('comments/', include('tours.urls')),
+    path('comments/', include('comments.urls')),
 
 
 
