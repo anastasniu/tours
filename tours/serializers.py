@@ -1,13 +1,5 @@
 from rest_framework import serializers
-from tours.models import Tour
-<<<<<<< HEAD
-
-class ToursSerializer(serializers.ModelSerializer):
-    region = serializers.StringRelatedField()
-    class Meta:
-        model = Tour
-        fields = '__all__'
-=======
+from .models import Tour
 from comments.models import Review
 from comments.serializers import ReviewsSerializer
 
@@ -36,7 +28,6 @@ class ToursSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Tour
-<<<<<<< HEAD
         fields = ('title', 'city', 'address', 'distance', 'price', 'maxGroupSize', 'desc', 'photo', 'featured')
 
 
@@ -44,8 +35,3 @@ class ToursSerializer(serializers.ModelSerializer):
         user = self.context['request'].user
         tour = Tour.objects.create(user=user, **validated_data)
         return tour
-    
->>>>>>> c21bb4f
-=======
-        fields =['id','title', 'city', 'address', 'distance', 'price', 'maxGroupSize','desc', 'photo']
->>>>>>> 31d1881

@@ -1,13 +1,8 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.utils.translation import gettext_lazy as _
-<<<<<<< HEAD
-from comments.models import Review
+# from comments.models import Review
 
-=======
-from django.contrib.auth.models import User
-from core import settings
->>>>>>> 31d1881
 
 class City(models.Model):
     name = models.CharField(max_length=100)
@@ -15,11 +10,7 @@ class City(models.Model):
     def __str__(self):
         return self.name
     
-<<<<<<< HEAD
     class Meta:
-=======
-    class Meta:  
->>>>>>> 31d1881
         verbose_name = "Область"
         verbose_name_plural = "Области"
 
@@ -31,17 +22,9 @@ class Address(models.Model):
     def __str__(self):
         return self.name
     
-<<<<<<< HEAD
     class Meta:
         verbose_name = "Город"
         verbose_name_plural = "Города"    
-=======
-    class Meta:  
-        verbose_name = "Город"
-        verbose_name_plural = "Города"
- 
-
->>>>>>> 31d1881
 
 
 class Tour(models.Model):
@@ -73,18 +56,11 @@ class Tour(models.Model):
                             verbose_name="Описание тура")
     photo = models.ImageField("Постер", upload_to='media/', null=True)
     featured = models.BooleanField(default=True)
-    reviews = models.ForeignKey(Review, on_delete=models.CASCADE)
+    # reviews = models.ForeignKey(Review, on_delete=models.CASCADE)
 
     def __str__(self) -> str:
         return self.title
     
-<<<<<<< HEAD
     class Meta:
         verbose_name = "Тур"
         verbose_name_plural = "Туры"
-=======
-    class Meta:  
-        verbose_name = "Тур"
-        verbose_name_plural = "Туры"
-
->>>>>>> 31d1881

@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
     #Libs
     'rest_framework',
     'drf_yasg',
@@ -38,11 +39,7 @@ INSTALLED_APPS = [
     # Apps
     'accounts',
     'tours',
-<<<<<<< HEAD
     'comments',
-=======
-    'comments'
->>>>>>> c21bb4f
 ]
 
 MIDDLEWARE = [
