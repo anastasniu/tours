@@ -12,7 +12,9 @@ class ToursListSerializer(serializers.ModelSerializer):
     class Meta:
         
         model = Tour
-        fields = ['id','title', 'city', 'address', 'distance', 'price', 'maxGroupSize','desc', 'reviews', 'photo', 'featured' ]
+        fields = ['title', 'city', 'address', 'distance', 'price', 'maxGroupSize','desc', 'reviews', 'photo', 'featured' ]
+        
+
         
     def to_representation(self, instance):
         data = super().to_representation(instance)
