@@ -35,7 +35,11 @@ INSTALLED_APPS = [
     # Apps
     'accounts',
     'tours',
+<<<<<<< HEAD
     'comments',
+=======
+    'comments'
+>>>>>>> c21bb4f
 ]
 
 MIDDLEWARE = [
