@@ -9,7 +9,5 @@ class ReviewsSerializer(serializers.ModelSerializer):
         model = Review
         fields =['id', 'tours', 'name', 'body']
 
-        
 
-
-    
+      

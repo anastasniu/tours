@@ -65,3 +65,5 @@ class Tour(models.Model):
     class Meta:
         verbose_name = "Тур"
         verbose_name_plural = "Туры"
+
+
