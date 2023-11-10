@@ -7,7 +7,7 @@ router = DefaultRouter()
 # router.register('',views.ToursList,basename='')
 
 urlpatterns = [
-    path('list/', views.ProfileAPIView.as_view()),
+    path('me/', views.ProfileAPIView.as_view()),
 ]
 
 

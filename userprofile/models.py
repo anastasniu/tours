@@ -9,6 +9,9 @@ class Profile(models.Model):
     bio = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.user.username
+        return f'Профайл пользователя {self.name}' 
     
+class Gallery(models.Model):
+    image = models.ImageField(upload_to='gallery')
+    product = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='images')
 
