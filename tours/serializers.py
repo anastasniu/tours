@@ -1,13 +1,13 @@
 from rest_framework import serializers
 from .models import Tour
 from comments.models import Review
-from comments.serializers import ReviewsSerializer
+from comments.serializers import ReviewSerializer
 
 
 
 class ToursListSerializer(serializers.ModelSerializer):
     city = serializers.StringRelatedField()
-    reviews = ReviewsSerializer(many=True, read_only=True)
+    reviews = ReviewSerializer(many=True, read_only=True)
 
     class Meta:
         
