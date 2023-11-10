@@ -1,5 +1,13 @@
 from django.contrib import admin
-from .models import Profile
+from .models import Profile, Gallery
 
 
-admin.site.register(Profile)
+
+class GalleryInline(admin.TabularInline):
+    fk_name = 'profile'
+    model = Gallery
+
+
+@admin.register(Profile)
+class ProductAdmin(admin.ModelAdmin):
+    inlines = [GalleryInline,]

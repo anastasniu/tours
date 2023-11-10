@@ -13,5 +13,5 @@ class Profile(models.Model):
     
 class Gallery(models.Model):
     image = models.ImageField(upload_to='gallery')
-    product = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='images')
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='images')
 
